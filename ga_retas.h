@@ -71,6 +71,17 @@ aux_vetorial(int* v1,int* v2,int* vr)
 	vr[2]=(v1[0]*v2[1])+((-1)*(v1[1]*v2[0]));
 }
 
+void menu_OP(int *p1,int *p2, int *v1, int *v2,int cmd)
+{
+	system("cls");
+	if(cmd==1)
+	{
+	printf("Welcome to the analitic geometry heaven, here you will test the lines, and see it's position(partial) please put the lines information below\n");
+	}
+	printf("R1:A( %d , %d , %d )+ K( %d , %d , %d )\n",p1[0],p1[1],p1[2],v1[0],v1[1],v1[2]);
+	printf("R2:B( %d , %d , %d )+ K( %d , %d , %d )\n",p2[0],p2[1],p2[2],v2[0],v2[1],v2[2]);
+}
+
 int find_Lambda(int* v1,int* v2)
 {
 	int lbda1=0,lbda2=0,lbda3=0;
