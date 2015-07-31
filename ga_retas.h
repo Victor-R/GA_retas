@@ -16,7 +16,7 @@ int is_Coplanar(int* v1,int* v2,int* ponto1,int* ponto2)
 		m[0][i]=v1[i];
 		m[1][i]=v2[i];    // preenche a matriz determinante
 		m[2][i]=v3[i];
-	}	
+	}
 	do
 	{
 		if(x==0)
@@ -65,7 +65,7 @@ int aux_Escalar(int* v1,int* v2)  // calcula o escalar entre 2 vetores
 }
 
 aux_vetorial(int* v1,int* v2,int* vr)
-{	
+{
 	vr[0]=(v1[1]*v2[2])+((-1)*(v1[2]*v2[1]));
 	vr[1]=(v1[2]*v2[0])+((-1)*(v1[0]*v2[2]));
 	vr[2]=(v1[0]*v2[1])+((-1)*(v1[1]*v2[0]));
@@ -96,4 +96,17 @@ int find_Lambda(int* v1,int* v2)
 	{
 		return 666;   // se 666 entao o lambda não existe :D
 	}
+
+int parallel(int* v1,int* v2)
+{
+    int i=0;
+    for(i=1;i<100;i++){
+        if((v1[0]*i==v2[0] && v1[1]*i==v2[1] && v1[2]*i==v2[2]) || (v2[0]*i==v1[0] && v2[1]*i==v1[1] && v2[2]*i==v1[2])){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+    }
+
 }

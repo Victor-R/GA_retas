@@ -9,7 +9,7 @@ main(void)
 	int res;
 	menu_OP(p1,p2,v1,v2,1);  //  função de geração do menu e retas
 	do
-	{		
+	{
 		switch(control)
 		{
 			case '0': printf("Type A: x="); scanf("%d",&p1[0]); control='1'; break;
@@ -38,9 +38,28 @@ main(void)
 	res=is_Coplanar(v1,v2,p1,p2);						//Teste de coplanaridade
 	if(res)
 	{
-		printf("They are coplanar lines\n");		
+		printf("They are coplanar lines\n");
 	}else
 	{
 		printf("They aren't coplanar lines\n");
 	}
+	/*
+	    //Representação retas paralelas//
+    printf("\n  \xDB\xDB\xDB\xDB\xDB\xDB\xDB\xDB\xDB\xDB");
+    printf("\n\n");
+    printf("  \xDB\xDB\xDB\xDB\xDB\xDB\xDB\xDB\xDB\xDB");
+    printf("\n\n");
+        //Representação retas ortogonais//
+    printf("       \xDB\n       \xDB\n       \xDB\n  \xDB\xDB\xDB\xDB\xDB\xDB\xDB\xDB\xDB\xDB\xDB");
+    printf("        \n       \xDB\n       \xDB\n");
+    printf("\n\n");
+        //Representação retas congruentes
+    printf("      \xDB     \xDB\n");
+    printf("       \xDB   \xDB\n");
+    printf("        \xDB \xDB\n");
+    printf("         \xDB\n");
+    printf("        \xDB \xDB\n");
+    printf("       \xDB   \xDB\n");
+    printf("      \xDB     \xDB\n");*/
+
 }
