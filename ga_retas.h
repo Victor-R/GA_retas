@@ -4,7 +4,7 @@
 
 int is_Coplanar(int* v1,int* v2,int* ponto1,int* ponto2, int* v3) 
 {
-	int v3[3],m[3][3],res=0;
+	int m[3][3],res=0;
 	int i=0,det=0,x=0;
 
 	for(i=0;i<3;i++)
@@ -82,7 +82,7 @@ int find_Lambda(int* v1,int* v2)
 {
 	int lbda1=0,lbda2=0,lbda3=0;
 
-	if((v1[0]==v1[1])==v1[2])==0 && (v2[0]==v2[1])==v2[2])==0 )  // Se os dois vetores forem iguais ao vetor nulo, então K=0
+	if((((v1[0]==v1[1])==v1[2])==0) && (((v2[0]==v2[1])==v2[2])==0))  // Se os dois vetores forem iguais ao vetor nulo, então K=0
 	{
 		lbda1=0;
 	}else    // Se os dois forem nulos, então sem a necessidade de fazer as verificações abaixo
