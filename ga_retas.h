@@ -2,15 +2,11 @@
 #include <stdlib.h>
 
 
-int is_Coplanar(int* v1,int* v2,int* ponto1,int* ponto2)
+int is_Coplanar(int* v1,int* v2,int* ponto1,int* ponto2, int* v3) 
 {
 	int v3[3],m[3][3],res=0;
 	int i=0,det=0,x=0;
 
-	for(i=0;i<3;i++)
-	{
-		v3[i]=ponto2[i]-ponto1[i]; // vetor entre retas OBS: se o vetor for igual o vetor nulo são coincidentes? ou já são consideradas coplanares?
-	}
 	for(i=0;i<3;i++)
 	{
 		m[0][i]=v1[i];
@@ -85,9 +81,35 @@ void menu_OP(int *p1,int *p2, int *v1, int *v2,int cmd)
 int find_Lambda(int* v1,int* v2)
 {
 	int lbda1=0,lbda2=0,lbda3=0;
-	lbda1=(int)v1[0]/v2[0];
-	lbda2=(int)v1[1]/v2[1];
-	lbda3=(int)v1[2]/v2[2];
+
+	if((v1[0]==v1[1])==v1[2])==0 && (v2[0]==v2[1])==v2[2])==0 )  // Se os dois vetores forem iguais ao vetor nulo, então K=0
+	{
+		lbda1=0;
+	}else    // Se os dois forem nulos, então sem a necessidade de fazer as verificações abaixo
+	{
+		if(v2[0]!=0)
+		{
+			lbda1=(int)v1[0]/v2[0];
+		}else
+		{
+			lbda1=0;
+		}
+		if(v2[1]!=0)
+		{
+			lbda2=(int)v1[1]/v2[1];                 // v1 = &*v2   => v1/v2 = &     K=lambda
+		}else
+		{
+			lbda2=0;
+		}
+		if(v2[2]!=0)
+		{
+			lbda3=(int)v1[2]/v2[2];
+		}else
+		{
+			lbda3=0;
+		}
+	}
+	
 	if(lbda1==lbda2 && lbda1==lbda3)	//se os 3 lambdas encontrados forem iguais entao existe um lambda válido
 	{
 		return lbda1;
@@ -100,7 +122,8 @@ int find_Lambda(int* v1,int* v2)
 int parallel(int* v1,int* v2)
 {
     int i=0;
-    for(i=1;i<100;i++){
+    for(i=1;i<100;i++)
+    {
         if((v1[0]*i==v2[0] && v1[1]*i==v2[1] && v1[2]*i==v2[2]) || (v2[0]*i==v1[0] && v2[1]*i==v1[1] && v2[2]*i==v1[2])){
             return 1;
         }else{

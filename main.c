@@ -4,9 +4,9 @@
 
 main(void)
 {
-	int v1[3]={0,0,0},v2[3]={0,0,0},p1[3]={0,0,0},p2[3]={0,0,0};  //declaração de variáveis
+	int v1[3]={0,0,0},v2[3]={0,0,0},p1[3]={0,0,0},p2[3]={0,0,0},v3[3];  //declaração de variáveis
 	char control='0',control2='0';
-	int res;
+	int res,lambda;	
 	menu_OP(p1,p2,v1,v2,1);  //  função de geração do menu e retas
 	do
 	{
@@ -35,14 +35,36 @@ main(void)
 		}
 	}while(control2!='6' && control!='6');
 	menu_OP(p1,p2,v1,v2,0);
-	res=is_Coplanar(v1,v2,p1,p2);						//Teste de coplanaridade
+	for(i=0;i<3;i++)
+	{
+		v3[i]=ponto2[i]-ponto1[i]; // vetor entre retas OBS: se o vetor for igual o vetor nulo são coincidentes? ou já são consideradas coplanares?
+	}
+	res=is_Coplanar(v1,v2,p1,p2,v3);						//Teste de coplanaridade
+	printf("| %d  %d  %d |\n",v1[0],v1[1],v1[2]);
+	printf("| %d  %d  %d | det=%d \n",v2[0],v2[1],v2[2],res);
+	printf("| %d  %d  %d |\n",v3[0],v3[1],v3[2]);
 	if(res)
 	{
 		printf("They are coplanar lines\n");
 	}else
 	{
 		printf("They aren't coplanar lines\n");
+		printf("So, they are reverses lines\n");
 	}
+	
+	lambda=find_Lambda(v1,v2);
+	if(lambda!=666)
+	{
+		//achou lambda válido = paralelo
+		printf("They are parallel vectors and the K=%d \n", lambda);
+	}
+
+
+
+
+
+
+
 	/*
 	    //Representação retas paralelas//
     printf("\n  \xDB\xDB\xDB\xDB\xDB\xDB\xDB\xDB\xDB\xDB");
