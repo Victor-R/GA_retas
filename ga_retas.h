@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 
-int is_Coplanar(int* v1,int* v2,int* ponto1,int* ponto2, int* v3) 
+int is_Coplanar(int* v1,int* v2,int* ponto1,int* ponto2, int* v3)
 {
 	int m[3][3],res=0;
 	int i=0,det=0,x=0;
@@ -58,6 +58,7 @@ int aux_Escalar(int* v1,int* v2)  // calcula o escalar entre 2 vetores
 	{
 		res+=v1[i]*v2[i];
 	}
+	return res;
 }
 
 aux_vetorial(int* v1,int* v2,int* vr)
@@ -109,7 +110,7 @@ int find_Lambda(int* v1,int* v2)
 			lbda3=0;
 		}
 	}
-	
+
 	if(lbda1==lbda2 && lbda1==lbda3)	//se os 3 lambdas encontrados forem iguais entao existe um lambda válido
 	{
 		return lbda1;
@@ -118,18 +119,4 @@ int find_Lambda(int* v1,int* v2)
 	{
 		return 666;   // se 666 entao o lambda não existe :D
 	}
-
-int parallel(int* v1,int* v2)
-{
-    int i=0;
-    for(i=1;i<100;i++)
-    {
-        if((v1[0]*i==v2[0] && v1[1]*i==v2[1] && v1[2]*i==v2[2]) || (v2[0]*i==v1[0] && v2[1]*i==v1[1] && v2[2]*i==v1[2])){
-            return 1;
-        }else{
-            return 0;
-        }
-    }
-    }
-
 }
