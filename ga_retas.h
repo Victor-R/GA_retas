@@ -42,13 +42,12 @@ int is_Coplanar(int* v1,int* v2,int* ponto1,int* ponto2, int* v3)
 			det+=(-1)*(v1[0]*v2[2]*v3[1]);
 		}
 		x++;
-	}while(x<3);
-	printf("determinante=%d\n",det);
+	}while(x<3);	
 
-	if(det==0) res=1;   //é coplanar
-	else res=0;  // não é coplanar
+	//if(det==0) res=1;   //é coplanar
+	//else res=0;  // não é coplanar
 
-	return res;
+	return det;
 }
 
 int aux_Escalar(int* v1,int* v2)  // calcula o escalar entre 2 vetores
